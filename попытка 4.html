@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Диалог для колл-центра</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+        }
+        .nav {
+            width: 200px;
+            margin-right: 20px;
+        }
+        .nav a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            flex: 1;
+        }
+        .dialogue {
+            margin-bottom: 20px;
+        }
+        .manager {
+            color: red;
+            font-weight: bold;
+        }
+        .client {
+            color: blue;
+            font-weight: bold;
+        }
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="#page1" onclick="showPage('page1')">1. Приветствие с клиентом</a>
+            <a href="#page2" onclick="showPage('page2')">2. Вопрос о доставке</a>
+            <a href="#page3" onclick="showPage('page3')">3. Вопрос о сервисе</a>
+            <a href="#page4" onclick="showPage('page4')">4. Узнать статус заказа</a>
+            <a href="#page5" onclick="showPage('page5')">5. Доп вопросы</a>
+            <a href="#page6" onclick="showPage('page6')">6. Прощание с клиентом</a>
+        </div>
+        <div class="content">
+            <!-- Приветствие с клиентом -->
+            <div id="page1" class="page">
+                <h1>Приветствие с клиентом</h1>
+                <div class="dialogue">
+                    <p class="manager">Менеджер: Добрый день, компания Megastore, меня зовут <span class="red">(имя менеджера)</span>.</p>
+                    <p class="client">Клиент: Здравствуйте!</p>
+                    <p class="manager">Менеджер: Чем я могу вам помочь сегодня?</p>
+                </div>
+            </div>
+
+            <!-- Вопрос о доставке -->
+            <div id="page2" class="page" style="display: none;">
+                <h1>Вопрос о доставке</h1>
+                <div class="dialogue">
+                    <p class="client">Клиент: Я хотел бы узнать, когда будет доставлен мой заказ.</p>
+                    <p class="manager">Менеджер: Подождите, пожалуйста, сейчас проверю информацию о доставке.</p>
+                    <p class="manager">Менеджер: Могу я узнать номер вашего заказа для проверки?</p>
+                    <p class="client">Клиент: Мой номер заказа — <span class="blue">(номер заказа)</span>.</p>
+                    <p class="manager">Менеджер: Примерная дата доставки: <span class="green">(примерная дата доставки)</span>.</p>
+                </div>
+            </div>
+
+            <!-- Вопрос о сервисе -->
+            <div id="page3" class="page" style="display: none;">
+                <h1>Вопрос о сервисе</h1>
+                <div class="dialogue">
+                    <p class="client">Клиент: У меня проблема с вашим сервисом. Что мне делать?</p>
+                    <p class="manager">Менеджер: Какая поломка или проблема у вас возникла? Пожалуйста, опишите её подробно.</p>
+                    <p class="client">Клиент: <span class="blue">(описание проблемы)</span></p>
+                    <p class="manager">Менеджер: Если возможно, пришлите фото дефекта на этот номер: <span class="blue">(номер для отправки фото)</span>.</p>
+                    <p class="manager">Менеджер: Если мы не сможем помочь, я передам вашу информацию нашему сервис-менеджеру. Он свяжется с вами для дальнейшего решения вопроса.</p>
+                </div>
+            </div>
+
+            <!-- Узнать статус заказа -->
+            <div id="page4" class="page" style="display: none;">
+                <h1>Узнать статус заказа</h1>
+                <div class="dialogue">
+                    <p class="client">Клиент: Можете проверить статус моего заказа?</p>
+                    <p class="manager">Менеджер: Находим ваш заказ и проверяем дату доставки.</p>
+                    <p class="manager">Менеджер: Ваш заказ будет доставлен <span class="green">(дата доставки)</span>. Спасибо за терпение.</p>
+                </div>
+            </div>
+
+            <!-- Доп вопросы -->
+            <div id="page5" class="page" style="display: none;">
+                <h1>Доп вопросы</h1>
+                <div class="dialogue">
+                    <p class="client">Клиент: У меня больше нет вопросов.</p>
+                    <p class="manager">Менеджер: Хорошо. Если у вас появятся дополнительные вопросы, не стесняйтесь обращаться.</p>
+                </div>
+            </div>
+
+            <!-- Прощание с клиентом -->
+            <div id="page6" class="page" style="display: none;">
+                <h1>Прощание с клиентом</h1>
+                <div class="dialogue">
+                    <p class="manager">Менеджер: Благодарю вас за обращение в компанию Megastore.</p>
+                    <p class="manager">Менеджер: Если у вас возникнут дополнительные вопросы или потребуется помощь, пожалуйста, не стесняйтесь связаться с нами снова.</p>
+                    <p class="manager">Менеджер: Желаю вам хорошего дня! До свидания!</p>
+                    <p class="client">Клиент: Спасибо! До свидания!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
